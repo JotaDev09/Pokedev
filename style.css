@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+.pokedex {
+    min-height: 50vh;;
+    background-color: rgb(165, 52, 52);
+    color: white;
+}
