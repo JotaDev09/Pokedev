@@ -24,22 +24,20 @@ let PokemonType;
 let PokemonImg;
 let PokemonColor;
 let start = 1;
-let limit = 152;
+let limit = 21;
 
 async function loadPokemon() { //La palabra clave async se añade a las funciones para que 
-                              //devuelvan una promesa en lugar de un valor directamente
+    //devuelvan una promesa en lugar de un valor directamente
     for (let i = start; i < limit; i++) {
-    let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    let response = await fetch(url); //Una función asíncrona es una función que sabe que es posible que
-                                    //se use la palabra clave  await dentro de ella para invocar código asíncrono.
-    Pokemon = await response.json();
-    allPokemon.push(Pokemon);
-    //let results = currentPokemon['results'];
-    //let pages = currentPokemon['url'];
-    console.log('loaded pokemon', Pokemon);
-                              }
-    //renderPokeInfo();
+        let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        let response = await fetch(url); //Una función asíncrona es una función que sabe que es posible que
+        //se use la palabra clave  await dentro de ella para invocar código asíncrono.
+        Pokemon = await response.json();
+        allPokemon.push(Pokemon);
+    }
     renderPokemon();
+    start += 20;
+    limit += 20;
 }
 
 
@@ -50,20 +48,20 @@ function renderPokemon() {
         const pokemon = allPokemon[i];
         PokemonName = pokemon['name'];
         PokemonOrder = pokemon['id'];
-        PokemonType = pokemon ['types']['0']['type']['name'];
+        PokemonType = pokemon['types']['0']['type']['name'];
         //currentPokemonType2 = pokemon ['types']['1']['type']['name'];
         PokemonImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i + 1}.png`
-        pokedex.innerHTML += renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor);
         renderTypeColor(PokemonType);
+        pokedex.innerHTML += renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor);
     }
-    
-    
-   // document.getElementById('pokemonName').innerHTML = currentPokemon['name']
+
+
+    // document.getElementById('pokemonName').innerHTML = currentPokemon['name']
 }
 
 function renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor) {
     return `
-            <div class="card" id="card${i}" style="background-color: ${PokemonColor};">
+            <div class="card" id="card${i}" style="background-color: ${PokemonColor};" onclick="openCard(${i})">
                 <div class="card_name">
                     <a id="pokemonName">#${PokemonOrder}&nbsp${PokemonName}</a>
                 </div>
@@ -120,9 +118,36 @@ function renderTypeColor(PokemonType) {
     if (PokemonType == 'dragon') {
         return PokemonColor = '#6AFB92';
     }
-    
 
     return PokemonColor;
+}
+
+function openCard(i) {
+    let id = allPokemon[i]['id'];
+    let name = allPokemon[i]['name'];
+    let img = document.getElementById('imgPokemon');
+    PokemonType = allPokemon[i]['types']['0']['type']['name'];
+    document.getElementById('container2').classList.remove('d-none');
+    document.getElementById('idPokemon').innerHTML = '# '+ id;
+    //document.getElementById['']
+    //document.getElementById['']
+    //document.getElementById['']
+    renderStatus(i);
+    renderTypeColor(PokemonType);
+    big_card.style=`background-color: ${PokemonColor}`;
+    document.getElementById('namePokemon').innerHTML = name;
+    document.getElementById('typePokemon').innerHTML = PokemonType;
+    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i + 1}.png`
+}
+
+
+function renderStatus(i) {
+    document.getElementById('hp').innerHTML = allPokemon[i]['stats']['0']['base_stat'];
+    document.getElementById('attack').innerHTML = allPokemon[i]['stats']['1']['base_stat'];
+    document.getElementById('defense').innerHTML = allPokemon[i]['stats']['2']['base_stat'];
+    document.getElementById('special-attack').innerHTML = allPokemon[i]['stats']['3']['base_stat'];
+    document.getElementById('special-defense').innerHTML = allPokemon[i]['stats']['4']['base_stat'];
+    document.getElementById('speed').innerHTML = allPokemon[i]['stats']['5']['base_stat'];
 }
 
 /*
@@ -148,14 +173,14 @@ function renderPokedex() {
 
 //for (let i = 0; i < results.length; i++) {
   //  const result = results[i];
-    
+
     //let order = result['0'];
-    
-    
+
+
     /*for (let j = 0; j < results.length; j++) {
         const result = results[j];
         pokedex.innerHTML += `<a>page ist ${result['url']}</a>`
-        
+
     }*/
 //}
 
@@ -184,7 +209,7 @@ function renderPokeDate(orders) {
         const order = orders[j];
         info.innerHTML += `<a> order ist ${order}</a>`
     }*/
-    
+
 
 
 

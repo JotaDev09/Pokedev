@@ -11,23 +11,34 @@
 </head>
 <body onload="loadPokemon()">
     <div class="container">
-        <h1 class="title">Pokedex</h1>
-        <div id="pokedex" class="pokedex">
-            
-            <!--<table>
-                <tr>
-                    <img>
-                    <td id="pokemonOrder">order</td>
-                    <td id="pokemonName">name</td>
-                    <td id="pokemonClass">class</td>
-                </tr>
-            </table>-->
-</div>
-
-        <!--<h1 id="pokemonName"></h1>
-        <a id="order"></a>
-        <img id="pokemonImg">-->
-
+        <h1 class="title">Pokédex</h1>
+        <div id="pokedex" class="pokedex"></div>
+        <button class="button" onclick="loadPokemon()">More Pokémon</button>
     </div>
+
+    <div id="container2" class="container2 d-none">
+        <div class="open_card">
+            <div class="big_card" id="big_card">
+                <div class="big_title">
+                    <a id="idPokemon"></a>
+                    <span id="namePokemon"></span>
+                    <a id="close" onclick="closeCard()">X</a>
+                </div>
+                <span id="typePokemon"></span>
+                <div>
+                    <img id="imgPokemon">
+                </div>
+                <div id="status">
+                    <a id="hp"></a>
+                    <a id="attack"></a>
+                    <a id="defense"></a>
+                    <a id="special-attack"></a>
+                    <a id="special-defense"></a>
+                    <a id="speed"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
