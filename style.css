@@ -285,7 +285,12 @@ body {
     }
 
     .search {
-        width: 200px
+        width: 200px;
+        padding-left: 2px;
+    }
+
+    .input_search {
+        font-size: 12px;
     }
 
     .name_title {
@@ -295,11 +300,11 @@ body {
 @media (max-width: 550px) {
     
     .search {
-        width: 120px
+        width: 130px
     }
 
     .input_search {
-        width: 110px
+        width: 120px
     }
 
 }
@@ -309,13 +314,21 @@ body {
         height: 60px;
     }
 
-    .search {
-        width: 110px
+    .input_search {
+        width: 115px;
     }
 
-    .input_search {
-        width: 100px;
+    .card {
+        width: 148px;
         font-size: 13px;
+    }
+
+    .card_name {
+        font-size: 15px;
+    }
+
+    .card_img img {
+        height: 140px;
     }
 
     .title {
