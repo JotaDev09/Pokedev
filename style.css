@@ -1,22 +1,94 @@
 body {
     margin: 0;
     background-color: rgb(42, 42, 121);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.container {
+/*header*/
+.header {
     width: 90%;
-    background-color: rgb(245, 245, 245);
-    color: white;
+    height: 100px;
+    margin-left: 5%;
+    display: flex;
+}
+
+.sub_header {
+    width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(245, 245, 245);
+}
+
+.logo_j {
+    height: 80px;
+}
+
+.search_cont {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.input_search {
+    width: 300px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: rgb(42, 42, 121);
+}
+
+.input_search::placeholder {
+    color: rgb(42, 42, 121);
+}
+
+.clear_search {
+    color: rgb(42, 42, 121);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.logo {
+    margin-left: -70px;
+}
+
+.name_title {
+    margin-right: -70px;
 }
 
 .title {
     color: rgb(42, 42, 121);
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Pokedex*/
+.container_web {
+    background-color: rgb(42, 42, 121);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    padding-top: 20px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .pokedex {
@@ -29,10 +101,11 @@ body {
 .card {
     width: 180px;
     height: 250px;
-    border: 1px solid black;
     margin: 7px;
-    border-radius: 10%;
-    color: rgb(42, 42, 121);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -45,7 +118,7 @@ body {
     align-items: center;
     justify-content: center;
     padding-top: 9px;
-    font-size: 20px;
+    font-size: 17px;
     text-transform: capitalize;
 }
 
@@ -69,19 +142,128 @@ body {
     text-transform: capitalize;
 }
 
-.button {
-    font-size: 20px;
-    position: fixed;
-    bottom: 30px;
+.container_button {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button { 
+    font-size: 14px;
     color: rgb(42, 42, 121);
     background-color: rgb(245, 245, 245);
     cursor: pointer;
-}
-
-.open_card {
-    background-color: black;
+    border: none;
+    border-radius: 5px;
 }
 
 .d-none {
     display: none;
+}
+
+.container2 {
+    top: 0;
+    width: 100%;
+    height: 110%;
+    position: fixed;
+    background-color: #15161554;
+}
+
+.open_card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #15161554;
+}
+
+.big_card {
+    position: relative;
+    width: 370px;
+    height: 550px;
+    border: 4px solid white;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.name_card {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 27px;
+    font-style: bold;
+}
+
+.name_pokemon b {
+    text-transform: capitalize;
+}
+
+.img_card_border {
+    display: flex;
+    justify-content: center;
+}
+
+.img_card_border2 {
+    border-radius: 5px;
+    width: 325px;
+    height: 250px;
+    background-color: rgb(245, 245, 245);
+}
+
+.img_card {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.img_pokemon {
+    width: 285px;
+    margin-top: -25px;
+    background-color: transparent;
+}
+
+.status_card {
+    padding: 30px;
+}
+
+.status_type {
+    margin-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 18px;
+    border-radius: 7px;
+}
+
+.close_card {
+    width: 100%;
+    height: 100%;
+    top: -279px;
+    left: 187px;
+    z-index: 2;
+    font-size: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.back_x {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(42, 42, 121);
+    font-family: Arial, Helvetica, sans-serif;
 }
