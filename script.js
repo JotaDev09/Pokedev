@@ -8,22 +8,22 @@ let PokemonColor;
 let start = 1;
 let limit = 25;
 
-async function loadPokemon() { //La palabra clave async se añade a las funciones para que 
-    //devuelvan una promesa en lugar de un valor directamente
+
+//load the first 24 Pokemon
+async function loadPokemon() { 
     for (let i = start; i < limit; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        let response = await fetch(url); //Una función asíncrona es una función que sabe que es posible que
-        //se use la palabra clave  await dentro de ella para invocar código asíncrono.
+        let response = await fetch(url);
         Pokemon = await response.json();
         allPokemon.push(Pokemon);
     }
     renderPokemon();
     start += 24;
     limit += 24;
-
 }
 
 
+//load the info of the Pokémon
 function renderPokemon() {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML = '';
@@ -37,11 +37,10 @@ function renderPokemon() {
         renderTypeColor(PokemonType);
         pokedex.innerHTML += renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor);
     }
-
-
-    // document.getElementById('pokemonName').innerHTML = currentPokemon['name']
 }
 
+
+//render de Pokédex with all the Information
 function renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor) {
     return `
             <div class="card" id="card${i}" style="background-color: ${PokemonColor};" onclick="openCard(${i})">
@@ -58,6 +57,7 @@ function renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, Po
 }
 
 
+//load color according to type
 function renderTypeColor(PokemonType) {
     if (PokemonType == 'grass') {
         return PokemonColor = '#47735C';
@@ -108,18 +108,16 @@ function renderTypeColor(PokemonType) {
     return PokemonColor;
 }
 
+
+//open the card of chosen pokémon
 function openCard(i) {
     let id = allPokemon[i]['id'];
     let name = allPokemon[i]['name'];
     let img = document.getElementById('imgPokemon');
     PokemonType = allPokemon[i]['types']['0']['type']['name'];
-    //document.getElementById('container2').classList.remove('d-none');
     document.getElementById('container2').classList.remove('d-none');
     document.getElementById('open_card').classList.remove('d-none');
     document.getElementById('idPokemon').innerHTML = '#' + id;
-    //document.getElementById['']
-    //document.getElementById['']
-    //document.getElementById['']
     renderStatus(i);
     renderTypeColor(PokemonType);
     big_card.style = `background-color: ${PokemonColor}`;
@@ -129,12 +127,14 @@ function openCard(i) {
 }
 
 
+//close the card
 function closeCard() {
     document.getElementById('container2').classList.add('d-none');
     document.getElementById('open_card').classList.add('d-none');
 }
 
 
+//load the info of the Status
 function renderStatus(i) {
     document.getElementById('hp').innerHTML = allPokemon[i]['stats']['0']['base_stat'] + 'HP';
     document.getElementById('attack').innerHTML = allPokemon[i]['stats']['1']['base_stat'];
@@ -144,6 +144,8 @@ function renderStatus(i) {
     document.getElementById('speed').innerHTML = allPokemon[i]['stats']['5']['base_stat'];
 }
 
+
+//search Pokémon
 function searchPokemon() {
     let search = document.getElementById('searchPokemon').value;
     search = search.toLowerCase(); //Devuelve el valor a minúsculas
@@ -166,6 +168,8 @@ function searchPokemon() {
     }
 }
 
+
+//clear the input search
 function clearSearch() {
     document.getElementById('searchPokemon').value = '';
     renderPokemon();

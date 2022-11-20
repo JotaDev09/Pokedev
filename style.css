@@ -73,7 +73,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/*Pokedex*/
+/*Pokédex*/
 .container_web {
     background-color: rgb(42, 42, 121);
     display: flex;
@@ -162,6 +162,7 @@ body {
     display: none;
 }
 
+/*card*/
 .container2 {
     top: 0;
     width: 100%;
@@ -266,4 +267,101 @@ body {
     justify-content: center;
     background-color: rgb(42, 42, 121);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 950px) {
+    .logo {
+        margin-left: -30px;
+    }
+
+    .name_title {
+        margin-right: -30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .logo {
+        margin-left: -5px;
+    }
+
+    .search {
+        width: 200px
+    }
+
+    .name_title {
+        margin-right: -5px;
+    }
+}
+@media (max-width: 550px) {
+    
+    .search {
+        width: 120px
+    }
+
+    .input_search {
+        width: 110px
+    }
+
+}
+@media (max-width: 420px) {
+    
+    .logo_j {
+        height: 60px;
+    }
+
+    .search {
+        width: 110px
+    }
+
+    .input_search {
+        width: 100px;
+        font-size: 13px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .close_card {
+        left: 165px;
+    }
+
+    .big_card {
+        width: 342px;
+    }
+}
+
+@media (max-width:350px) {
+
+    .header {
+        height: 105px;
+    }
+
+    .sub_header {
+        flex-direction: column-reverse;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .close_card {
+        left: 138px;
+    }
+
+    .big_card {
+        width: 272px;
+    }
+
+    .name_card {
+        font-size: 20px;
+    }
+
+    .img_card_border2 {
+        width: 260px;
+    }
+
+    .img_pokemon {
+        width: 260px;
+    }
 }
