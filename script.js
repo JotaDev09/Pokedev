@@ -3,14 +3,17 @@ let Pokemon;
 let PokemonName;
 let PokemonOrder;
 let PokemonType;
+let PokemonType2;
 let PokemonImg;
 let PokemonColor;
 let start = 1;
 let limit = 25;
+let loading = false;
 
 
 //load the first 24 Pokemon
-async function loadPokemon() { 
+async function loadPokemon() {
+    loading = true;
     for (let i = start; i < limit; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
@@ -20,6 +23,7 @@ async function loadPokemon() {
     renderPokemon();
     start += 24;
     limit += 24;
+    loading = false;
 }
 
 
@@ -32,16 +36,15 @@ function renderPokemon() {
         PokemonName = pokemon['name'];
         PokemonOrder = pokemon['id'];
         PokemonType = pokemon['types']['0']['type']['name'];
-        //currentPokemonType2 = pokemon ['types']['1']['type']['name'];
         PokemonImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i + 1}.png`
         renderTypeColor(PokemonType);
-        pokedex.innerHTML += renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor);
+        pokedex.innerHTML += renderPokedex(i, PokemonName, PokemonOrder, PokemonImg, PokemonColor);
     }
 }
 
 
 //render de Pokédex with all the Information
-function renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, PokemonColor) {
+function renderPokedex(i, PokemonName, PokemonOrder, PokemonImg, PokemonColor) {
     return `
             <div class="card" id="card${i}" style="background-color: ${PokemonColor};" onclick="openCard(${i})">
                 <div class="card_name">
@@ -51,7 +54,7 @@ function renderPokedex(i, PokemonName, PokemonOrder, PokemonType, PokemonImg, Po
                     <img src="${PokemonImg}">
                 </div>
                 <div class="card_type">
-                    <a>${PokemonType}&nbsp</a>
+                    <a>${PokemonType}</a>
                 </div>
             </div>`;
 }
@@ -136,6 +139,7 @@ function closeCard() {
 
 //load the info of the Status
 function renderStatus(i) {
+    //document.getElementById('type2').innerHTML = allPokemon[i]['types']['1']['type']['name'];
     document.getElementById('hp').innerHTML = allPokemon[i]['stats']['0']['base_stat'] + 'HP';
     document.getElementById('attack').innerHTML = allPokemon[i]['stats']['1']['base_stat'];
     document.getElementById('defense').innerHTML = allPokemon[i]['stats']['2']['base_stat'];

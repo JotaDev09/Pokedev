@@ -156,6 +156,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
+    pointer-events: none;
 }
 
 .d-none {
@@ -226,6 +227,10 @@ body {
     width: 285px;
     margin-top: -25px;
     background-color: transparent;
+}
+
+.type_card {
+    text-transform: capitalize;
 }
 
 .status_card {

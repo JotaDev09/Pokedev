@@ -43,8 +43,8 @@
     </div>
     <div id="container2" class="container2 d-none">
         <div class="close_card">
-            <div class="back_x">
-                <a class="x_close" id="close" onclick="closeCard()">X</a>
+            <div class="back_x" onclick="closeCard()">
+                <a class="x_close" id="close">X</a>
             </div>
         </div>
         <div id="open_card" class="open_card d-none">
@@ -69,7 +69,7 @@
                     <div id="status">
                         <div class="status_type">
                             <a>Pokémon type</a>
-                            <span id="typePokemon"></span>
+                            <span class="type_card" id="typePokemon">/<a id="type2"></a></span>
                         </div>
                         <div class="status_type">
                             <a>Attack</a>
