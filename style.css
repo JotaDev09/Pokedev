@@ -147,16 +147,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.button { 
+.button {
     font-size: 14px;
-    color: rgb(42, 42, 121);
+    color: #2a2a79;
     background-color: rgb(245, 245, 245);
-    cursor: pointer;
     border: none;
     border-radius: 5px;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 .d-none {
@@ -302,8 +302,9 @@ body {
         margin-right: -5px;
     }
 }
+
 @media (max-width: 550px) {
-    
+
     .search {
         width: 130px
     }
@@ -313,8 +314,9 @@ body {
     }
 
 }
+
 @media (max-width: 420px) {
-    
+
     .logo_j {
         height: 60px;
     }
