@@ -20,7 +20,7 @@ body {
 }
 
 .logo_j {
-    height: 80px;
+    width: 120;
 }
 
 .search_cont {
@@ -318,7 +318,7 @@ body {
 @media (max-width: 420px) {
 
     .logo_j {
-        height: 60px;
+        width: 100px;
     }
 
     .input_search {
